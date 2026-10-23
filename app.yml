@@ -1,0 +1,28 @@
+version: 2
+
+name: BOB_APP
+database: DEMO_DB
+schema: APPS
+query_warehouse: BOB_DEMO_WH
+
+ignore:
+  - node_modules
+  - .env*
+  - __pycache__
+  - "*.pyc"
+  - .next
+  - .git
+  - snowflake.log
+
+profile:
+  label: "Provider Book of Business"
+  description: "Live filtered metrics, 200K-row request detail, and provider notes write-back on DEMO_DB"
+  icon: icon.svg
+
+install:
+  commands:
+    - ["npm", "ci", "--include=dev"]
+
+run:
+  command: ["node", ".next/standalone/server.js"]
+  executeAsCaller: true
