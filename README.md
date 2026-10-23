@@ -11,6 +11,26 @@ An interactive reporting app for a home services marketplace, built with Next.js
 - **Deep links:** the URL tracks the filters and tab, e.g. `?metro=Denver&category=HVAC&tab=map`.
 - **Caller's rights:** queries run as the signed-in user (`executeAsCaller: true`), so each person sees only what their role allows.
 
+## Screenshots
+
+**Overview:** live KPIs for the current filter slice
+![Overview](docs/screenshots/01-overview.png)
+
+**Charts:** demand trend and category mix
+![Charts](docs/screenshots/06-charts.png)
+
+**Market Map:** ZIP-level performance, here filtered to Denver
+![Market Map](docs/screenshots/02-market-map.png)
+
+**Heatmaps:** market by category GMV
+![Heatmaps](docs/screenshots/03-heatmaps.png)
+
+**Request Detail:** server-side paged requests, here Chicago Remodeling
+![Request Detail](docs/screenshots/04-request-detail.png)
+
+**Provider Notes:** provider list with notes written back to Snowflake
+![Provider Notes](docs/screenshots/05-provider-notes.png)
+
 ## Prerequisites
 - A Snowflake account with App Runtime and Cortex (Agents, Analyst, Search) available.
 - [Snowflake CLI](https://docs.snowflake.com/en/developer-guide/snowflake-cli/index) with a default connection configured.
