@@ -1,6 +1,6 @@
 # Provider Book of Business (Snowflake App Runtime demo)
 
-An interactive reporting app for a home services marketplace, built with Next.js and deployed on **Snowflake App Runtime**. All data is synthetic.
+An interactive reporting app for a home services marketplace, built with Next.js by **Snowflake Cortex Code (CoCo)** and deployed on **Snowflake App Runtime**. All data is synthetic.
 
 ## Features
 - **Overview:** live KPIs (requests, GMV, CSAT, completion rate, active pros) that update as you filter.
