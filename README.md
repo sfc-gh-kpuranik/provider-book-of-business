@@ -34,19 +34,21 @@ snow app deploy
 
 The deploy prints the app URL. To grant other users access, see the App Runtime docs on sharing applications.
 
-## Objects created
-| Object | Purpose |
-|---|---|
-| `DEMO_DB.APPS.SERVICE_REQUESTS_LARGE` | 250K service requests |
-| `DEMO_DB.APPS.DIM_PROVIDER_DEMO` | 470 service providers |
-| `DEMO_DB.APPS.DIM_ZIP` | Synthetic ZIP centroids for the map |
-| `DEMO_DB.APPS.PROVIDER_NOTES` | Notes written back from the app |
-| `DEMO_DB.ANALYTICS.CUSTOMER_FEEDBACK` | Feedback text for search |
-| `DEMO_DB.ANALYTICS.FEEDBACK_SEARCH` | Cortex Search service |
-| `DEMO_DB.APPS.BOB_SV` | Semantic view with the app's metric definitions |
-| `SNOWFLAKE_INTELLIGENCE.AGENTS.BOB_AGENT` | Cortex Agent used by the chat drawer |
-| `BOB_DEMO_WH` | Medium warehouse used by the app and agent |
-| `DEMO_DB.APPS.BOB_APP` | The App Runtime application (created by `snow app deploy`) |
+## What the demo creates
+| Type | Object | Created by | Purpose |
+|---|---|---|---|
+| Database / schemas | `DEMO_DB`, `DEMO_DB.APPS`, `DEMO_DB.ANALYTICS` | `generate_data.sql` | Holds all demo objects |
+| Warehouse | `BOB_DEMO_WH` (Medium) | `generate_data.sql` | Runs the app's and agent's queries |
+| Table | `DEMO_DB.APPS.SERVICE_REQUESTS_LARGE` | `generate_data.sql` | 250K synthetic service requests |
+| Table | `DEMO_DB.APPS.DIM_PROVIDER_DEMO` | `generate_data.sql` | 470 service providers |
+| Table | `DEMO_DB.APPS.DIM_ZIP` | `generate_data.sql` | Synthetic ZIP centroids for the map |
+| Table | `DEMO_DB.APPS.PROVIDER_NOTES` | `generate_data.sql` | Notes written back from the app |
+| Table | `DEMO_DB.ANALYTICS.CUSTOMER_FEEDBACK` | `generate_data.sql` | Feedback text for search |
+| Cortex Search service | `DEMO_DB.ANALYTICS.FEEDBACK_SEARCH` | `setup.sql` | Searches customer feedback for the chat |
+| Semantic view | `DEMO_DB.APPS.BOB_SV` | `setup.sql` | Metric definitions (GMV, CSAT, completion %) used by Cortex Analyst |
+| Cortex Agent | `SNOWFLAKE_INTELLIGENCE.AGENTS.BOB_AGENT` | `setup.sql` | Powers the "Ask the data" chat (semantic view + search tools) |
+| Caller grants | `GRANT CALLER ...` on the objects above | `setup.sql` | Lets the app run queries as the signed-in user |
+| App Runtime application service | `DEMO_DB.APPS.BOB_APP` | `snow app deploy` | The Next.js app, hosted and served by Snowflake |
 
 ## Local development
 ```bash
